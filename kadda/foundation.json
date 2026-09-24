@@ -1,0 +1,15 @@
+{
+  "stack": {
+    "language": "python",
+    "test_runner": "pytest"
+  },
+  "src_dirs": [
+    "src"
+  ],
+  "test_dirs": [
+    "tests"
+  ],
+  "global_checks": [
+    "pytest -q tests"
+  ]
+}
