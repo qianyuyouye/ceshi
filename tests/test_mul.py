@@ -7,6 +7,7 @@ def test_mul_integers():
 
 def test_mul_negative():
     assert mul(-2, 3) == -6
+    assert mul(-2, 5) == -10
     assert mul(-2, -3) == 6
 
 
