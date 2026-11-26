@@ -8,7 +8,10 @@ export function refund(order: Order, reason: string): Order {
   if (order.status !== 'paid') {
     throw new Error('only paid orders can be refunded')
   }
-  console.log(`refund ${order.id}: ${reason}`)
+  if (!reason) {
+    throw new Error('refund reason is required')
+  }
+  console.log(`refund ${order.id} (${order.amount}): ${reason}`)
   return { ...order, status: 'refunded' }
 }
 
