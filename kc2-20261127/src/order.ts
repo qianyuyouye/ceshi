@@ -4,7 +4,8 @@ export type Order = { id: string; status: "pending" | "paid" | "cancelled" | "re
 export function refund(order: Order): Order {
   if (order.status !== "paid") throw new Error("only paid orders can be refunded");
   if (order.amountCents <= 0) throw new Error("invalid amount");
-  return { ...order, status: "refunded", amountCents: 0 };
+  const refunded = { ...order, status: "refunded" as const };
+  return { ...refunded, amountCents: 0 };
 }
 
 // 订单创建后 30 分钟未支付自动取消
