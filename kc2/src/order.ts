@@ -8,5 +8,5 @@ export function refund(order: Order, reason: string): Order {
   if (!order.paid) {
     throw new Error("未支付订单不能退款");
   }
-  return { ...order, status: "refunded" };
+  return { ...order, status: "refunded", refundedAt: Date.now() };
 }
